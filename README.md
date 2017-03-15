@@ -9,7 +9,7 @@ For the build process I used Gulp and as package manager I used NPM.
 In order to build this project, you need to have Node, npm, and gulp installed. **Please refer to their official websites to know how to install them.** The process is pretty straightforward.
 <br>In your cmd/prompt/shell type:
 ```sh
-npm install<br>
+npm install
 ```
 and
 ```sh
