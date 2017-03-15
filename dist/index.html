@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html  lang="en" ng-app="portfolioApp">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Victor Lia Fook - Software Developer</title>
+
+	<link rel="stylesheet" href="css/main-21c2c6368f.css"/>
+	
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <span ui-view="nav"></span>
+	<header ui-view="header" style="display:inline;"></header>
+	<!-- Page Content -->
+    <div class="container">
+		<div ui-view="content" class="container"></div>
+		<footer ui-view="footer"></footer>
+	</div>    
+
+   	<!-- Angular JS -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.js"></script>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
+
+    
+	
+	<script src="js/app-8536775a9c.js"></script>
+	
+	
+	<!-- Script to Activate the Carousel -->
+    <script>
+    $( document ).ready(function(){
+		$('.carousel').carousel({
+			interval: 3000 //changes the speed
+		});
+	});
+    </script>
+</body>
+
+</html>
