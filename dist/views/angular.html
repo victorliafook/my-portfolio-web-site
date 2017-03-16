@@ -1,0 +1,246 @@
+<div class="row">
+     <div class="col-lg-12">
+         <h1 class="page-header">Angular
+             <small>How did I make this page?</small>
+         </h1>
+         <ol class="breadcrumb">
+             <li><a href="index.html">Home</a>
+             </li>
+             <li class="active">Angular</li>
+         </ol>
+     </div>
+ </div>
+<div class="row">
+	<div class="col-lg-12">
+	
+         <h2 class="page-header">About AngularJS</h2>
+    </div>
+	<div class="col-lg-12">
+         <div class="well">Please note that this is not a complete step-by-step tutorial; Some of the code is missing. This is just a general guideline on how I developed this simple web application. For the complete code, please take a look at my github.</div>
+    </div>
+	<div class="col-lg-8">
+		<p>According to AngularJS' documentation: <blockquote>"AngularJS is a structural framework for dynamic web apps. It lets you use HTML as your template language and lets you extend HTML's syntax to express your application's components clearly and succinctly. AngularJS's data binding and dependency injection eliminate much of the code you would otherwise have to write. And it all happens within the browser, making it an ideal partner with any server technology."</blockquote>
+		</p>
+	</div>
+	<div class="col-lg-4">
+		<img class="img-responsive" src="img/AngularJS-large.png" alt="AngularJS">
+	</div>
+	<div class="col-lg-12">
+		<h3 class="page-header">Dependency Injection?</h3>
+			<p>Dependency Injection is a type of the Design Pattern called IoC - Inversion Of Control. That means that can you delegate some control of your application to another entity, the framework. It will load and prepare some stuff for you as you show it that you are needing that stuff, resolving their dependencies, and providing them to other components as requested.
+			</p>
+		<code>
+			<pre>
+"use strict";
+
+angular.module("portfolioApp")
+
+	.controller("infoController", ['$scope', 'dataService', function($scope, dataService) {
+		$scope.courses = dataService.getCourses();
+		$scope.certifications = dataService.getCertifications();
+
+}]);
+			</pre>
+		</code>
+		<p>Above there is an example, from this app, of dependency injection in Angular. We don't need to worry about the variables $scope and dataService. The framework will solve these dependencies for us.
+		The array notation <code>['$scope', 'dataService', function($scope, dataService) {}] </code> where we pass an array with some strings with the function itself is intended to allow the minifiers to rename the function parameters and still be able to inject the right services, since it does not know anything about dependency injection!
+		
+		If you are not going to minify your code, you can use the implicit annotation, and the code would be like this:
+		</p>
+		<code>
+			<pre>
+angular.module("portfolioApp")
+
+	.controller("infoController", function($scope, dataService) {
+		$scope.courses = dataService.getCourses();
+		$scope.certifications = dataService.getCertifications();
+
+});
+			</pre>
+		</code>
+	</div>
+</div>
+<div class="row">
+	<div class="col-lg-12">
+	<h3 class="page-header">Templates</h3>
+	<p>In AngularJS, templates are written with HTML that contains AngularJS-specific elements and attributes. AngularJS combines the template with information from the model and controller to render the dynamic view that a user sees in the browser.
+	</p>
+	<code ng-non-bindable>
+		<pre>
+&lt;div class="row"&gt;
+	&lt;div class="col-lg-12"&gt;
+		&lt;h2 class="page-header"&gt;&lt;i class="fa fa-certificate"&gt;&lt;/i&gt; Certifications&lt;/h2&gt;
+	&lt;/div&gt;
+	&lt;div class="col-lg-12"&gt;
+		&lt;table class="table table-hover table-striped"&gt;
+			&lt;tr ng-repeat="line in certifications.data"&gt;
+				&lt;td&gt;{{line.name}}&lt;/td&gt;&lt;td&gt;{{line.organisation}}&lt;/td&gt;&lt;td&gt;{{line.year}}&lt;/td&gt;
+			&lt;/tr&gt;
+		&lt;/table&gt;
+	&lt;/div&gt;
+
+&lt;/div&gt;
+		</pre>
+	</code>
+	<p>In the code example above, we can see some of angulars specific elements and attributes like ng-repeat, which gives us the power to iterate through an array (in this case, certifications.data) and the markup double cURLy brace {{}} which can bind expressions to your html element or just render its result to your page.
+	</p>
+	
+</div>
+<div class="row">
+	<div class="col-lg-12">
+         <h2 class="page-header">Angular's UI-Router</h2>
+     </div>
+	<div class="col-lg-12">
+		<p>The UI-Router is a routing framework for AngularJS. To summarize, UI-Router change your app's view based on it's state, not just the route URL.
+		</p>
+		<h3 class="page-header">What does that mean?</h3>
+		<p>Basically, that means that your routes and views aren't tied to your URL anymore. So you can just define routes and change the state of your app without changing your URL. It is great to build a desktop-like experience, for example.
+		This is a choice, however - if you want to define an URL for each state, no problem. The JS framework will still change the views, not reloading the whole page.
+		</p>
+	</div>
+	<div class="col-lg-12">
+		<p>The code showed below is the app.js - the core of this application. Injecting the $stateProvider variable (from ui.router) I could build this app as a single-page app. Each .state() call defines a new state for the application.
+		</p>
+		<code>
+			<pre>
+'use strict';
+angular.module('portfolioApp', ['ui.router'])
+.config(['$stateProvider', '$URLRouterProvider', function($stateProvider, $URLRouterProvider) {
+  $stateProvider
+	// route for the home page
+	.state('app', {
+	  URL:'/',
+	  views: {
+		'nav' :{
+			templateUrl : 'views/nav.html'
+		},
+		'header': {
+		  templateUrl : 'views/header.html'
+		},
+		'content': {
+		  templateUrl : 'views/home.html'
+		},
+		'footer': {
+		  templateUrl : 'views/footer.html'
+		}
+	  }
+	})
+
+	//route for the about page
+	.state('app.about', {
+	  URL:'about',
+	  views: {
+		'header@': {
+		  templateUrl : null
+		},
+		'content@': {
+		  templateUrl : 'views/about.html'
+		}
+	  }
+	})
+	// route for the achiev. page
+	.state('app.achievements', {
+	  URL:'achievements',
+	  views: {
+		'header@': {
+		  templateUrl : null
+		},
+		'content@': {
+		  templateUrl : 'views/achievements.html',
+		  controller  : 'infoController'
+		}
+	  }
+	})
+	  // route for the contact page
+	.state('app.contact', {
+	  URL:'contact',
+	  views: {
+		'header@': {
+		  templateUrl : null
+		},
+		'content@': {
+		  templateUrl : 'views/contact.html'
+		}
+	  }
+	}) 
+
+	  // route for this page
+	.state('app.angular', {
+	  URL:'angular',
+	  views: {
+		'header@': {
+		  templateUrl : null
+		},
+		'content@': {
+		  templateUrl : 'views/angular.html'
+		}
+	  }
+	});
+  $URLRouterProvider.otherwise('/');
+}]);
+			</pre>
+		</code>
+		
+		<p>Note that in each state we can set an URL, the views of that state as well as a controller to serve as the "backend" of each view from that state. The views are defined in the main html file, index.html, in which the views are being loaded, depending on the active state.
+		</p>
+		<code>
+			<pre>
+&lt;body&gt;
+
+    &lt;span ui-view="nav"&gt;&lt;/span&gt;
+	&lt;header ui-view="header" style="display:inline;"&gt;&lt;/header&gt;
+	&lt;!-- Page Content --&gt;
+    &lt;div class="container"&gt;
+		&lt;div ui-view="content" class="container"&gt;&lt;/div&gt;
+		&lt;footer ui-view="footer"&gt;&lt;/footer&gt;
+	&lt;/div&gt;    
+
+   	&lt;!-- Angular JS --&gt;
+	&lt;script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.js"&gt;&lt;/script&gt;
+	
+	&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"&gt;&lt;/script&gt;
+    
+	...
+			</pre>
+		</code>
+		<p>
+			In the html above (a snippet from index.html) we can see that the place (and name) of the views are set using the attribute ui-nav. Note that he same name is used in the object in the attribute views: {} in the state() function in the $stateProvider object. The templateUrl attribute, however, doesn't need to have the same name, even though I have set this way.
+		</p>
+	</div>
+	
+</div>
+<div class="row">
+	<div class="col-lg-12">
+		<h3 class="page-header">What about the design?</h3>
+	</div>
+	<div class="col-lg-12">
+		Well, the design was built using Bootstrap, one of the most popular frameworks for responsive and mobile first design. I am not getting into details, but all the cool features on this page, like icons, code snippet format, headers and the responsive grid system I didn't need to worry about writing CSS classes and rules, they all came from bootstrap. It really comes in handy! Please refer to their documentation for more details and how to install it on your web project.
+	</div>
+</div>
+<div class="row">
+	<div class="col-lg-12">
+		<h3 class="page-header">More Tools</h3>
+	</div>
+	<div class="col-lg-12">
+		<p>In this little application, I used some dependencies, both for the application itself as for the development process. As the application grows, its complexity grows as well and we need some more tools to handle its dependencies. For this task I, used <a target="_blank" href="http://www.npmjs.com/">NPM</a>, which is a package manager based on NodeJS. The build process as well can be worrisome, as we may need to do repetitive tasks, that are subject to human errors, like copying and pasting files, minifying JS and CSS, and so on. Therefore, is much better to automatize these tasks, using an automated task runner. There are many out there, but one of the most popular is <a target="_blank" href="http://gulpjs.com/">Gulp</a>. The best is that it is pure Javascript! Take a look at one example, from the gulpfile.js of this project:
+		</p>
+		<code>
+			<pre>
+//Copy images
+gulp.task('images', function(){
+	return gulp.src('src/img/**/*.*')
+	.pipe(gulp.dest('dist/img/'));
+});
+			</pre>
+		</code>
+		<p>Of course, this is only a small snippet from that file, but look how easy is to set a task to copy all files from the dev folder src/img/ to the distribution folder dist/img. You can then join many tasks as you want and prepare a general build task that calls all that inner tasks for you.</p>
+	</div>
+</div>
+<div class="row">
+	<div class="col-lg-12">
+		<h3 class="page-header">Much more behind!</h3>
+	</div>
+	<div class="col-lg-12">
+		<p>These instructions above are just the tip of the iceberg of the power that all those tools together can deliver to the web developer. I hope that for those unfamiliar with them, it may be useful! Feel free to send me suggestions or critics via email. Please refer to my <a ui-sref="app.about">contact details</a>. Thank you!</p>
+	</div>
+</div>

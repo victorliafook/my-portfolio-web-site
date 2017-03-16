@@ -21,9 +21,9 @@ angular.module("portfolioApp")
             return {
                 data: [{
                         name: "Machine Learning",
-                        organisation: "Coursera",
+                        organisation: "Stanford/Coursera",
                         year: "2016",
-                        url: "https://www.coursera.org/account/accomplishments/verify/XHDM2VLRAAXC"
+                        url: "https://www.coursera.org/account/accomplishments/certificate/XHDM2VLRAAXC"
                     },
                     {
                         name: "Using Regular Expressions",
@@ -33,55 +33,55 @@ angular.module("portfolioApp")
                     },
                     {
                         name: "Full Stack Web Development Specialization",
-                        organisation: "Coursera",
+                        organisation: "Hong Kong University of Science and Technology/Coursera",
                         year: "2016",
-                        url: "https://www.coursera.org/account/accomplishments/specialization/ZXK9K323URGU"
+                        url: "https://www.coursera.org/account/accomplishments/specialization/certificate/ZXK9K323URGU"
                     },
                     {
                         name: "Server-side Development with NodeJS",
-                        organisation: "Coursera",
+                        organisation: "Hong Kong University of Science and Technology/Coursera",
                         year: "2016",
-                        url: "https://www.coursera.org/account/accomplishments/verify/QVX392JQ4NT5"
+                        url: "https://www.coursera.org/account/accomplishments/certificate/QVX392JQ4NT5"
                     },
                     {
                         name: "Multiplatform Mobile App Development with Web Technologies",
-                        organisation: "Coursera",
+                        organisation: "Hong Kong University of Science and Technology/Coursera",
                         year: "2016",
-                        url: "https://www.coursera.org/account/accomplishments/verify/3HWE8ZWZCXGJ"
+                        url: "https://www.coursera.org/account/accomplishments/certificate/3HWE8ZWZCXGJ"
                     },
                     {
                         name: "Front-End JavaScript Frameworks: AngularJS",
-                        organisation: "Coursera",
+                        organisation: "Hong Kong University of Science and Technology/Coursera",
                         year: "2016",
-                        url: "https://www.coursera.org/account/accomplishments/verify/PZV7T4P4PDJ6"
+                        url: "https://www.coursera.org/account/accomplishments/certificate/PZV7T4P4PDJ6"
                     },
                     {
                         name: "Front-End Web UI Frameworks and Tools",
-                        organisation: "Coursera",
+                        organisation: "Hong Kong University of Science and Technology/Coursera",
                         year: "2016",
-                        url: "https://www.coursera.org/account/accomplishments/verify/2DWJDYZ34GDJ"
+                        url: "https://www.coursera.org/account/accomplishments/certificate/2DWJDYZ34GDJ"
                     },
                     {
                         name: "HTML, CSS and JavaScript",
-                        organisation: "Coursera",
+                        organisation: "Hong Kong University of Science and Technology/Coursera",
                         year: "2016",
-                        url: "https://www.coursera.org/account/accomplishments/verify/N6FY48QCXQZD"
+                        url: "https://www.coursera.org/account/accomplishments/certificate/N6FY48QCXQZD"
                     },
                     {
                         name: "Programming Mobile Applications for Android Handheld Systems: Part 2",
-                        organisation: "Coursera",
+                        organisation: "University of Maryland/Coursera",
                         year: "2015",
-                        url: "https://www.coursera.org/account/accomplishments/verify/GE8BJJHCR8"
+                        url: "https://www.coursera.org/account/accomplishments/certificate/GE8BJJHCR8"
                     },
                     {
                         name: "Programming Mobile Applications for Android Handheld Systems: Part 1",
-                        organisation: "Coursera",
+                        organisation: "University of Maryland/Coursera",
                         year: "2015",
-                        url: "https://www.coursera.org/account/accomplishments/verify/P9GDCG5K5V"
+                        url: "https://www.coursera.org/account/accomplishments/certificate/P9GDCG5K5V"
                     },
                     {
                         name: "Cryptography I",
-                        organisation: "Coursera",
+                        organisation: "Stanford/Coursera",
                         year: "2015",
                         url: "https://www.coursera.org/learn/crypto"
                     }
