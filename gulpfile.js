@@ -23,8 +23,16 @@ gulp.task('clean', function() {
     return del(['dist']);
 });
 
+
+//Copy root views
+gulp.task('root-html', function(){
+	return gulp.src('src/*.html')
+	.pipe(gulp.dest('dist/'));
+});
+
+
 //Copy views
-gulp.task('views', function(){
+gulp.task('views', ['root-html'], function(){
 	return gulp.src('src/views/**/*.html')
 	.pipe(gulp.dest('dist/views/'));
 });

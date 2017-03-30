@@ -38,7 +38,8 @@ angular.module('portfolioApp', ['ui.router'])
       url:'achievements',
       views: {
 		'header@': {
-          templateUrl : null
+          templateUrl : 'views/modal.html',
+		  controller : 'infoController'
         },
         'content@': {
           templateUrl : 'views/achievements.html',

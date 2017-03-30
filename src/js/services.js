@@ -3,6 +3,22 @@
 angular.module("portfolioApp")
 
     .service("dataService", function() {
+		this.getAcademics = function() {
+            return {
+                data: [{
+                    name: "MBA in IT Governance",
+                    organisation: "Universidade de Fortaleza - UNIFOR",
+                    year: "2013",
+					url: "http://unifor.br"
+                }, {
+                    name: "Bachelor's Degree in Computer Science",
+                    organisation: "Universidade Federal do Ceará - UFC",
+                    year: "2011",
+					url: "http://ufc.br"
+                }]
+            };
+        };
+		
         this.getCertifications = function() {
             return {
                 data: [{
@@ -30,6 +46,12 @@ angular.module("portfolioApp")
                         organisation: "LinkedIn",
                         year: "2016",
                         url: "http://www.linkedin.com/learning/using-regular-expressions"
+                    },
+					{
+                        name: "Coursera GTC Statement of Accomplishment - 15,000 Words Translated to English",
+                        organisation: "Coursera",
+                        year: "2016",
+                        url: "http://www.coursera.community/community-certificates/?CID=13597858"
                     },
                     {
                         name: "Full Stack Web Development Specialization",
