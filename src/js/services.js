@@ -35,7 +35,15 @@ angular.module("portfolioApp")
 
         this.getCourses = function() {
             return {
-                data: [{
+                data: [
+                    {   
+                        name: "Programmin Foundations: Test-Driven Development",
+                        organisation: "LinkedIn",
+                        year: "2017",
+                        url: "https://www.linkedin.com/learning/programming-foundations-test-driven-development"
+                        
+                    },
+                    {
                         name: "Machine Learning",
                         organisation: "Stanford/Coursera",
                         year: "2016",
