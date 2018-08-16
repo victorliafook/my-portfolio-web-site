@@ -1,9 +1,9 @@
 version: 2.0
 
 phases:
-	build:
-		commands:
-			- echo building website
+    build:
+        commands:
+            - echo building website
 artifacts:
-	files:
-		- dist/*
+    files:
+        - dist/*
