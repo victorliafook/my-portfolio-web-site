@@ -6,4 +6,4 @@ phases:
             - echo building website
 artifacts:
     files:
-        - dist/*
+        - dist/**/*
