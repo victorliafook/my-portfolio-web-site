@@ -3,10 +3,12 @@ version: 0.1
 phases:
     install:
         commands:
+            - echo INSTALL started on `date`
+            - npm install gulp -g
             - npm install
     build:
         commands:
-            - echo Building bundles
+            - echo Building bundles started on `date`
             - gulp default
     post_build:
         commands:
