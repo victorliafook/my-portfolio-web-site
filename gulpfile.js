@@ -1,5 +1,5 @@
 var gulp = require('gulp'),
-	minifycss = require('gulp-minify-css'),
+    minifycss = require('gulp-minify-css'),
     jshint = require('gulp-jshint'),
     stylish = require('jshint-stylish'),
     uglify = require('gulp-uglify'),
@@ -26,7 +26,7 @@ gulp.task('clean', function() {
 
 //Copy root views
 gulp.task('root-html', function(){
-	return gulp.src('src/*.html')
+	return gulp.src(['src/*.html', 'src/favicon.ico'])
 	.pipe(gulp.dest('dist/'));
 });
 
