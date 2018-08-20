@@ -1,9 +1,16 @@
 version: 0.1
 
 phases:
+    install:
+        commands:
+            - npm install
     build:
         commands:
-            - echo building website
+            - echo Building bundles
+            - gulp default
+    post_build:
+        commands:
+            - echo Build completed on `date`
 artifacts:
     files:
         - dist/**/*
