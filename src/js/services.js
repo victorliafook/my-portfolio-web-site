@@ -21,7 +21,13 @@ angular.module("portfolioApp")
 		
         this.getCertifications = function() {
             return {
-                data: [{
+                data: [
+                {
+                    name: "AWS Certified Developer - Associate (DVA)",
+                    organisation: "Amazon Web Services",
+                    year: "2018"
+                },
+                {
                     name: "ITIL Foundation Certificate in IT Service Management",
                     organisation: "Exin",
                     year: "2012"
