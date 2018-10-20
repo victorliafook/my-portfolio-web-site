@@ -23,6 +23,11 @@ angular.module("portfolioApp")
             return {
                 data: [
                 {
+                    name: "AWS Certified DevOps Engineer - Professional (DOP)",
+                    organisation: "Amazon Web Services",
+                    year: "2018"
+                },
+                {
                     name: "AWS Certified Developer - Associate (DVA)",
                     organisation: "Amazon Web Services",
                     year: "2018"
